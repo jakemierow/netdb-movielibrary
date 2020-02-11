@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "movielibrary", "movielibrary\movielibrary.csproj", "{FF5E6D8A-F6FB-4CAC-826D-215D8EE2DB2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF5E6D8A-F6FB-4CAC-826D-215D8EE2DB2D}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{FF5E6D8A-F6FB-4CAC-826D-215D8EE2DB2D}.Debug|anycpu.Build.0 = Debug|anycpu
+		{FF5E6D8A-F6FB-4CAC-826D-215D8EE2DB2D}.Release|anycpu.ActiveCfg = Release|anycpu
+		{FF5E6D8A-F6FB-4CAC-826D-215D8EE2DB2D}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
