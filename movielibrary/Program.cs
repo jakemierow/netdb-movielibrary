@@ -35,7 +35,7 @@ namespace movielibrary
                             Console.WriteLine("Movie ID: {0}, Title: {1}," +
                                 "Genre:{2}",
                                 arr[0], arr[1], arr[2]);
-
+                            
 
                         }
                         sr.Close();
@@ -55,7 +55,7 @@ namespace movielibrary
                     string resp = Console.ReadLine().ToUpper();
                     // if the response is anything other than "Y", stop asking
                     if (resp != "Y") { break; }
-                    //prompt for ticket ID
+                    //prompt for movie ID
                      movieID = movieID + 1;
                     Console.WriteLine($"Adding new movie to library under Movie ID {movieID}");
                     // save movie ID
@@ -64,22 +64,46 @@ namespace movielibrary
                     // prompt for movie title
                     Console.WriteLine("Enter movie title: ");
                     // save movie title
-                    string movieTitle = Console.ReadLine();
-
+                    string title = Console.ReadLine();
+                    
                     // prompt for movie genre
                     Console.WriteLine("Enter the genre of the movie: ");
                     // save movie genre
                     string movieGenre = Console.ReadLine();
-                    
 
 
-                    StreamWriter sw = new StreamWriter(file, append: true);
+                    // Boolean flag to determine if the movie title is unique and can be added to the file
+                    Boolean addMovie = true;
+
+                    StreamReader sr = new StreamReader(file);
+
+                    while(!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        string[] movieArray = line.Split(',');
+                        string oldTitle = movieArray[1];
+           
+                        // Check if given movie title already exists in the library
+                        if (oldTitle.Equals(title))
+                        {
+                            Console.WriteLine("This title already exists in the library.");
+                            addMovie = false;
+                            break;
+                        }
+
+                    }
+                    sr.Close();
+
+                    if(addMovie == true)
+                    {
+                        StreamWriter sw = new StreamWriter(file, append: true);
 
                     sw.WriteLine("{0},{1},{2}",
-                        movieID, movieTitle, movieGenre);
+                        movieID, title, movieGenre);
 
 
                     sw.Close();
+                    }
 
 
                 }
